@@ -18,7 +18,9 @@ def serve_build(path):
     return send_from_directory(WEBGL_DIR, path)
 
 def run_flask():
-    app.run(port=8500, debug=False, use_reloader=False)
+    port = int(os.environ.get('PORT', 5000))  # Heroku'nun atadığı portu al
+    app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
+   # app.run(port=8500, debug=False, use_reloader=False)#
 
 # Flask sunucusunu ayrı bir threadde başlatıyoruz
 threading.Thread(target=run_flask).start()
