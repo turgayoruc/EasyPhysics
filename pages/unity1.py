@@ -18,7 +18,8 @@ def serve_build(path):
     return send_from_directory(WEBGL_DIR, path)
 
 def run_flask():
-    port = os.environ.get('PORT', 5000)  # Heroku'nun atadığı portu al
+    port = int(os.environ.get('PORT'))  # Heroku'nun atadığı portu al
+    #port = int(os.environ.get('PORT', 5000))  # Heroku'nun atadığı portu al
     app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
    # app.run(port=8500, debug=False, use_reloader=False)#
 
