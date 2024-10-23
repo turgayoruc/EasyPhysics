@@ -2,10 +2,11 @@ import streamlit as st
 from flask import Flask, send_from_directory
 import threading
 import os
+from flask_cors import CORS
 
 # Flask sunucusu oluşturma
 app = Flask(__name__)
-
+CORS(app)
 # WebGL dosyalarının bulunduğu dizin
 WEBGL_DIR = "../Game"
 
@@ -29,7 +30,7 @@ threading.Thread(target=run_flask).start()
 # Streamlit içinde WebGL'i görüntülemek için iframe kullanıyoruz
 st.title("WebGL Uygulaması Streamlit İçinde")
 st.markdown(f"""
-    <iframe src="https://easyphysics-fb366bb0d623.herokuapp.com/" width="100%" height="600px" frameborder="0"></iframe>
+    <iframe src="https://easyphysics.streamlit.app/" width="100%" height="600px" frameborder="0"></iframe>
     """, unsafe_allow_html=True)
 
 # Bu projede markdown kullandik. digerinde st.components.v1
