@@ -9,7 +9,7 @@ from waitress import serve
 app = Flask(__name__)
 CORS(app)  # CORS sorunlarını önlemek için
 # WebGL dosyalarının bulunduğu dizin (projenize göre ayarlayın)
-WEBGL_DIR = "../Game"
+WEBGL_DIR = "../Game2"
 # Ana sayfa için index.html dosyasını sunma
 @app.route('/')
 def serve_index():
