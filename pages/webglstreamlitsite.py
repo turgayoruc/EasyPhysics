@@ -1,13 +1,13 @@
 import os
 import threading
 from flask import Flask, send_from_directory
-#from flask_cors import CORS  # CORS sorunları için
+from flask_cors import CORS  # CORS sorunları için
 import streamlit as st
 from waitress import serve
 
 # Flask sunucusu oluşturma
 app = Flask(__name__)
-#CORS(app)  # CORS sorunlarını önlemek için
+CORS(app)  # CORS sorunlarını önlemek için
 # WebGL dosyalarının bulunduğu dizin (projenize göre ayarlayın)
 WEBGL_DIR = "../Game"
 # Ana sayfa için index.html dosyasını sunma
